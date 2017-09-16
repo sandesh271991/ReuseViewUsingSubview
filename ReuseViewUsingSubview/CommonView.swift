@@ -8,16 +8,18 @@
 
 import UIKit
 
+protocol CommonViewDeleget {
+    func btnCommonClick()
+}
+
 class CommonView: UIView {
     
-    @IBOutlet weak var lblCommon: UILabel!
+    var deleget : CommonViewDeleget?
     
+    @IBOutlet weak var lblCommon: UILabel!
+        
     @IBAction func btnCommon(_ sender: Any) {
     
-    }
-    
-    //to create instance of UIView class using nibName
-    class func instanceFromNib() -> UIView {
-        return UINib(nibName: "CommonView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
+        self.deleget?.btnCommonClick()
     }
 }

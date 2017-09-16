@@ -15,10 +15,9 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //---- to add "commonView" as subview in "secondView"
-        let commonView = CommonView.instanceFromNib()
-        secondView.addSubview(commonView)
+        //---- initialise CommonView
+        let commonView = UINib(nibName: "CommonView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! CommonView
+        secondView.addSubview(commonView)  //---- to add "commonView" as subview
         
     }
-
 }
